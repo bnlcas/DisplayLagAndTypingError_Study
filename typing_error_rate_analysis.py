@@ -6,7 +6,7 @@ Created on Tue Aug 28 12:01:00 2018
 """
 import numpy as np
 
-def levenshtein(seq1, seq2):  
+def LevenshteinDistance(seq1, seq2):  
     size_x = len(seq1) + 1
     size_y = len(seq2) + 1
     matrix = np.zeros ((size_x, size_y))
@@ -31,3 +31,28 @@ def levenshtein(seq1, seq2):
                 )
     return (matrix[size_x - 1, size_y - 1])
 
+class TrialData:
+    def __init__(self, latency, frame_time, target_text, input_text):
+        self.latency = latency
+        self.frame_time = frame_time
+        self.target_text = target_text
+        self.input_text = input_text
+        
+def LoadTestData(filename):
+    f = open(filename, 'r')
+    file_data = f.readlines()
+    trail_data_list = []
+    for i in range(1, len(file_data))
+        trial_data_list.append(ParseEntry(file_data[i]))
+    return trial_data_list
+    
+def ParseEntry(entry):
+    fields = entry.split("#")
+    latency = int(fields[0].split(":")[1])
+    frame_time = int(fields[1].split(":")[1])
+    target_text = fields[2].split(": ")[1]
+    input_text = fields[3].split(": ")[1]
+    return new TrialData(latency, frame_time, target_text, input_text)
+    
+
+filename = "trialData.txt"

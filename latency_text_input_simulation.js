@@ -1,4 +1,5 @@
 	var paragraph;// = document.getElementById("p");
+	var entryField;
 	var added_text = "";
 
 	var frameTime = 100;
@@ -8,19 +9,20 @@
   function myKeyPress(e)
   {
     var keynum;
-
     if(window.event) { // IE
       keynum = e.keyCode;
     } else if(e.which){ // Netscape/Firefox/Opera
       keynum = e.which;
     }
 
-	added_text += String.fromCharCode(keynum);
+		added_text += String.fromCharCode(keynum);
+		setTimeout(() => entryField.value = "",1);
   }
 
   function start()
   {
   	paragraph = document.getElementById("p");
+		entryField = document.getElementById("textEntry");
   }
 
   function drawWLatency()

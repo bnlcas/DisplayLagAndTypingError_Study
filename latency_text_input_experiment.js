@@ -23,15 +23,16 @@ function myKeyPress(e)
     keynum = e.which;
   }
 
-added_text += String.fromCharCode(keynum);
+  added_text += String.fromCharCode(keynum);
+  setTimeout(() => entryField.value = "",1);
 }
 
 function start()
 {
-entryField = document.getElementById("textEntry");
+  entryField = document.getElementById("textEntry");
   inputParagraph = document.getElementById("inputReadout");
-targetParagraph = document.getElementById("target");
-newTrial();
+  targetParagraph = document.getElementById("target");
+  newTrial();
 }
 
 function drawWLatency()
@@ -93,23 +94,23 @@ update = setInterval(drawWLatency, frameTime);
 
 function LogResult()
 {
-try {
-  results += "Latency:" + String(latency) + "#FrameTime:" + String(frameTime) + "#" + String(targetParagraph.innerHTML) + "#" + String(inputParagraph.innerHTML) + "\n";
-  }
-catch
-{
-  results += "";
-}
+  try {
+    results += "Latency:" + String(latency) + "#FrameTime:" + String(frameTime) + "#" + String(targetParagraph.innerHTML) + "#" + String(inputParagraph.innerHTML) + "\n";
+    }
+    catch
+    {
+      results += "";
+    }
 }
 
 
 function downloadTextFile(text, name)
 {
-const a = document.createElement('a');
-const type = name.split(".").pop();
-a.href = URL.createObjectURL( new Blob([text], { type:`text/${type === "txt" ? "plain" : type}` }) );
-a.download = name;
-a.click();
+  const a = document.createElement('a');
+  const type = name.split(".").pop();
+  a.href = URL.createObjectURL( new Blob([text], { type:`text/${type === "txt" ? "plain" : type}` }) );
+  a.download = name;
+  a.click();
 }
 
 function GenerateTargetString()

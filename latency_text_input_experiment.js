@@ -8,22 +8,30 @@ var frameTime = 100;
 var latency = 50;
 var update = setInterval(drawWLatency, frameTime);
 
-var trialTime = 8000;
-var trial = setInterval(newTrial, trialTime)
+var stimulusTime = 5000;
 var nTrials = 48;
 var trialNumber = 0;
+var targetText = "";
+var inputText = "";
+var displayingTarget = false;
 
 function myKeyPress(e)
 {
-  var keynum;
+  if(!displayingTarget)
+  {
+    var keynum;
 
-  if(window.event) { // IE
-    keynum = e.keyCode;
-  } else if(e.which){ // Netscape/Firefox/Opera
-    keynum = e.which;
+    if(window.event) { // IE
+      keynum = e.keyCode;
+    } else if(e.which){ // Netscape/Firefox/Opera
+      keynum = e.which;
+    }
+
+    if(keynum == 13){
+      newTrial()
+    }
+    added_text += String.fromCharCode(keynum);
   }
-
-  added_text += String.fromCharCode(keynum);
   setTimeout(() => entryField.value = "",1);
 }
 
@@ -32,70 +40,79 @@ function start()
   entryField = document.getElementById("textEntry");
   inputParagraph = document.getElementById("inputReadout");
   targetParagraph = document.getElementById("target");
-  newTrial();
 }
 
 function drawWLatency()
 {
-var current_text = added_text;
-setTimeout(() => draw(current_text), latency);
-added_text = "";
+  var current_text = added_text;
+  setTimeout(() => draw(current_text), latency);
+  added_text = "";
 }
 
 
 function draw(inputText)
 {
-inputParagraph.innerHTML += inputText;
+  inputParagraph.innerHTML += inputText;
 }
 
 function editFrameRate()
 {
-frameTime = parseInt(document.getElementById("FrameTime").value, 10);
-clearInterval(update);
-update = setInterval(drawWLatency, frameTime);
+  frameTime = parseInt(document.getElementById("FrameTime").value, 10);
+  clearInterval(update);
+  update = setInterval(drawWLatency, frameTime);
 }
 
 function editLatency()
 {
-
-latency = parseInt(document.getElementById("Latency").value, 10);
+  latency = parseInt(document.getElementById("Latency").value, 10);
 }
 
 
 
 function newTrial()
 {
-LogResult();
-console.log(results);
-var target = GenerateTargetString();
-
-entryField.value = "";
-inputParagraph.innerHTML = "Output: ";
-targetParagraph.innerHTML = "Target: " + target;
-SetLag();
-trialNumber += 1;
-if(trialNumber > nTrials)
-{
-  downloadTextFile(results, "trialData.txt")
+  LogResult();
+  trialNumber += 1;
+  if(trialNumber > nTrials)
+  {
+    downloadTextFile(results, "trialData.txt")
+  }
+  else
+  {
+    targetText = GenerateTargetString();
+    SetLag();
+    setTimeout(EndPresentation, stimulusTime)
+    displayingTarget = true;
+    entryField.value = "";
+    inputParagraph.innerHTML = "Output: ";
+    targetParagraph.innerHTML = "Target: " + targetText;
+  }
 }
+
+function EndPresentation()
+{
+  displayingTarget = false;
+  entryField.value = "";
+  inputParagraph.innerHTML = "Output: ";
+  targetParagraph.innerHTML = "";
 }
 
 function SetLag()
 {
-var latencies = [0, 25, 50, 75, 120, 160];
-var frameTimes = [0, 16, 32, 64, 100, 150];
+  var latencies = [0, 25, 50, 75, 120, 160];
+  var frameTimes = [0, 16, 32, 64, 100, 150];
   frameTime = frameTimes[Math.floor(Math.random() * frameTimes.length)];
-latency = latencies[Math.floor(Math.random() * latencies.length)];
+  latency = latencies[Math.floor(Math.random() * latencies.length)];
 
-clearInterval(update);
-update = setInterval(drawWLatency, frameTime);
+  clearInterval(update);
+  update = setInterval(drawWLatency, frameTime);
 }
 
 
 function LogResult()
 {
   try {
-    results += "Latency:" + String(latency) + "#FrameTime:" + String(frameTime) + "#" + String(targetParagraph.innerHTML) + "#" + String(inputParagraph.innerHTML) + "\n";
+    results += "Latency:" + String(latency) + "#FrameTime:" + String(frameTime) + "#" + String(targetText) + "#" + String(inputParagraph.innerHTML) + "\n";
     }
     catch
     {

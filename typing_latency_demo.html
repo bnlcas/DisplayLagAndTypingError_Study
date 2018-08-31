@@ -5,6 +5,6 @@
 <p>Basic simulation of latency and frame rate for typing applications - this assumes that the actual latency of the browser is much less than the set values</p>
 	Frame Time (ms) <input type="text" id="FrameTime" onchange="editFrameRate()" value="100"><br>
 	Latency (ms) <input type="text" id="Latency" value="50" onchange="editLatency()"><br>
-    Text input <input type="text" onkeypress="return myKeyPress(event)" />
+    Text input <input type="text" id="textEntry" onkeypress="return myKeyPress(event)" />
 	<p id="p">Output: </p>
 </body>

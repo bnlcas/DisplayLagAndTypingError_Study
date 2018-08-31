@@ -1,0 +1,49 @@
+Latency:50#FrameTime:100#Target: #Output: 
+Latency:50#FrameTime:16#Target: And why was it there?#Output: and why was it there&gt;?
+Latency:25#FrameTime:100#Target: from the far end of town where the Grickle-grass grows#Output: from the far end of town where the Grickel gra
+Latency:75#FrameTime:32#Target: and tells how the Lorax was lifted away#Output: ss and teslls how the lorawx was 
+Latency:50#FrameTime:150#Target: before somebody lifted the Lorax away#Output: lifbefore somebody lifted the lorax away
+Latency:120#FrameTime:16#Target: Now I'll tell you, he says, with his teeth sounding gray#Output: now i'll tell you, he says, hwith his 
+Latency:120#FrameTime:64#Target: On the end of a rope he lets down a tin pail#Output: son the end of a rope ehe lets down a tine pia
+Latency:50#FrameTime:16#Target: And why was it there?#Output: land why as it there
+Latency:50#FrameTime:32#Target: The bright colored tufts of the Truffula Trees#Output: the bight colored tufts of the Truffulua
+Latency:25#FrameTime:150#Target: to see if you've paid him the proper amount#Output:  to see if you've paind him the proper amo
+Latency:75#FrameTime:32#Target: And I first saw the trees, the Truffula Trees#Output: unand I first saw the trees the truffulua tr
+Latency:25#FrameTime:16#Target: if you look deep enough you can still see today#Output: eeif you look deep enough you can see t
+Latency:160#FrameTime:16#Target: and the shell of a great-greatgrandfather snail#Output: oday and the shell of a greate gradfather s
+Latency:25#FrameTime:100#Target: no birds ever sing excepting old crows#Output: anil no birds ever sing wecepting old cr
+Latency:120#FrameTime:32#Target: And I first saw the trees, the Truffula Trees#Output: ows and I wfirst saw the frees the truffula 
+Latency:160#FrameTime:100#Target: and the shell of a great-greatgrandfather snail#Output: tress and the shell of a great- great-gradn
+Latency:75#FrameTime:64#Target: before somebody lifted the Lorax away#Output: father sombeody lifterd the lowrax aw
+Latency:120#FrameTime:0#Target: Then he hides what you paid him away in his Snuv#Output: yaathen he hides
+Latency:0#FrameTime:64#Target: the wind smells slow-and-sour when it blows#Output: i
+Latency:75#FrameTime:16#Target: What was the Lorax?#Output: what was the lorawx 
+Latency:25#FrameTime:64#Target: to see if you've paid him the proper amount#Output: to see if youv'e paid him the proper amount
+Latency:0#FrameTime:16#Target: before somebody lifted the Lorax away#Output: before somebody lifted the lorax away
+Latency:160#FrameTime:100#Target: The old Onceler still lives here#Output: the old onceler sitll lives here
+Latency:0#FrameTime:16#Target: Then he hides what you paid him away in his Snuv#Output: the he hides what you paid him away in shis sn
+Latency:25#FrameTime:32#Target: to see if you've paid him the proper amount#Output: to see if you've apid him the prooer amount
+Latency:50#FrameTime:64#Target: how the Lorax got lifted and taken away#Output: how the loarax got lifted and atkend somewh
+Latency:25#FrameTime:64#Target: You wont see the Once-ler. Don't knock at his door#Output: eryouwont see the onceler don't know ofthis do
+Latency:75#FrameTime:100#Target: is the Street of the Lifted Lorax#Output: oris the streeet of the lifterd lorax
+Latency:160#FrameTime:150#Target: and tells how the Lorax was lifted away#Output: and hetll how the lorax was lifted away
+Latency:75#FrameTime:0#Target: He'll tell you, perhaps if you're willing to pay#Output: hell tell you prehaps, ify oure' wi
+Latency:0#FrameTime:0#Target: It all started way back, such a long, long time back#Output: llingitall started way back such a long long time b
+Latency:75#FrameTime:64#Target: and tells how the Lorax was lifted away#Output: ackand hells the lorax was leifted way
+Latency:50#FrameTime:100#Target: to see if you've paid him the proper amount#Output: sto see if you've paid him the proper amount
+Latency:50#FrameTime:0#Target: And deep in the Grickle-grass some people say#Output: and deep in the grkckle grass some people say
+Latency:0#FrameTime:0#Target: from the far end of town where the Grickle-grass grows#Output: target from the far end of town where the grickle g
+Latency:50#FrameTime:64#Target: Then he hides what you paid him away in his Snuv#Output: rassthen he hides what you paind him asin in s 
+Latency:50#FrameTime:0#Target: to see if you've paid him the proper amount#Output: snusto see if you've paid im the proper amount
+Latency:160#FrameTime:100#Target: Then he pulls up the pail, makes a most careful count#Output: tehn he pulls up the pail makes a most careful 
+Latency:120#FrameTime:16#Target: The bright colored tufts of the Truffula Trees#Output: coun the brigh colored tufts of the Tuffula tr
+Latency:25#FrameTime:150#Target: and the shell of a great-greatgrandfather snail#Output: eesnand hte shell of a greate-freafrand
+Latency:25#FrameTime:32#Target: and the shell of a great-greatgrandfather snail#Output: fa
+Latency:120#FrameTime:150#Target: and you have to toss in fifteen cents and a nail#Output: 
+Latency:160#FrameTime:16#Target: and you have to toss in fifteen cents and a nail#Output: 
+Latency:160#FrameTime:16#Target: to see if you've paid him the proper amount#Output: 
+Latency:0#FrameTime:64#Target: how the Lorax got lifted and taken away#Output: hos the lorax got flited and taken away
+Latency:25#FrameTime:100#Target: at the far end of town where the grickle-grass grows#Output: at the far end of town where the grickle grass frows 
+Latency:25#FrameTime:16#Target: and you have to toss in fifteen cents and a nail#Output: and you have to toss thin fifteen cents and a 
+Latency:120#FrameTime:100#Target: Now I'll tell you, he says, with his teeth sounding gray#Output: nail now i'll tell you, he says , with hs
+Latency:25#FrameTime:0#Target: where he makes his own clothes out of miff-muffered moof#Output: is

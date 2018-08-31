@@ -81,11 +81,28 @@ function newTrial()
   {
     targetText = GenerateTargetString();
     SetLag();
+    DisplayStimulusCountdown(stimulusTime);
     setTimeout(EndPresentation, stimulusTime)
     displayingTarget = true;
     entryField.value = "";
-    inputParagraph.innerHTML = "Output: ";
+    //inputParagraph.innerHTML = "Output: ";
     targetParagraph.innerHTML = "Target: " + targetText;
+  }
+}
+
+function DisplayStimulusCountdown(stimulusTimeRemaining)
+{
+
+  var timeRemainingText = String(stimulusTimeRemaining/1000);
+  console.log(timeRemainingText);
+  inputParagraph.innerHTML = "STIMULUS TIME: " + timeRemainingText;
+  if(stimulusTimeRemaining >= 1000)
+  {
+    setTimeout(() => DisplayStimulusCountdown(stimulusTimeRemaining - 1000), 1000);
+  }
+  else
+  {
+    inputParagraph.innerHTML = "Output: ";
   }
 }
 

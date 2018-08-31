@@ -6,6 +6,7 @@ Created on Tue Aug 28 12:01:00 2018
 """
 import numpy as np
 from matplotlib.pyplot import plot as plt
+from scipy.stats import pearsonr
 
 def LevenshteinDistance(seq1, seq2):  
     size_x = len(seq1) + 1
@@ -37,6 +38,7 @@ class TrialData:
         self.latency = latency
         self.frame_time = frame_time
         self.edit_distance = LevenshteinDistance(target_text, input_text)
+        self.normalized_edit_distance = float(self.edit_distance)/float(len(target_text))
         self.target_text = target_text
         self.input_text = input_text
         
@@ -52,24 +54,56 @@ def ParseEntry(entry):
     fields = entry.split("#")
     latency = int(fields[0].split(":")[1])
     frame_time = int(fields[1].split(":")[1])
-    target_text = fields[2].split(": ")[1]
-    input_text = fields[3].split(": ")[1]
+    target_text = fields[2]
+    input_text = fields[3].split(": ")[1].replace("\n","")
     return TrialData(latency, frame_time, target_text, input_text)
 
-def BinLatency(trial_data):
+def BinLagLatency(trial_data):
     latencies = [tr.latency for tr in trial_data]
     unique_latency = list(set(latencies))
     unique_latency.sort()
     average_edits = []
     for latency in unique_latency:
-        edit_distances = [tr.edit_distance for tr in trial_data if tr.latency == latency]
+        edit_distances = [tr.normalized_edit_distance for tr in trial_data if tr.latency == latency]
         average_edits.append(np.mean(edit_distances))
     return zip(unique_latency, average_edits)
 
+def CheckLagLatencyCorrelation(trial_data):
+    lag_latency = [tr.latency for tr in trial_data]
+    norm_error = [tr.normalized_edit_distance for tr in trial_data]
+    corr = pearsonr(lag_latency, norm_error)
+    return corr
 
-filename = "trialData.txt"
+def BinFrameRateLatency(trial_data):
+    latencies = [tr.frame_time for tr in trial_data]
+    unique_latency = list(set(latencies))
+    unique_latency.sort()
+    average_edits = []
+    for latency in unique_latency:
+        edit_distances = [tr.normalized_edit_distance for tr in trial_data if tr.frame_time == latency]
+        average_edits.append(np.mean(edit_distances))
+    return zip(unique_latency, average_edits)
+
+def CheckFrameRateLatencyCorrelation(trial_data):
+    frame_rate_latency = [tr.frame_time for tr in trial_data]
+    norm_error = [tr.normalized_edit_distance for tr in trial_data]
+    corr = pearsonr(frame_rate_latency, norm_error)
+    return corr
+
+# Analyze Frame Rate only data:
+filename = "trialData_frameRate.txt"
 trials = LoadTestData(filename)
-latency_vs_editDist = BinLatency(trials)
+latency_vs_editDist = BinFrameRateLatency(trials)
+corr_frameRate = CheckFrameRateLatencyCorrelation(trials)
+#print(corr_frameRate[1]) # p-value - printing for python3 only...
+#Plot Latency:
+plt([x[0] for x in latency_vs_editDist], [x[1] for x in latency_vs_editDist])
 
+# Analyze Frame Rate only data:
+filename = "trialData_displayLag.txt"
+trials = LoadTestData(filename)
+latency_vs_editDist = BinLagLatency(trials)
+corr_lag = CheckLagLatencyCorrelation(trials)
+#print(corr_lag[1])
 #Plot Latency:
 plt([x[0] for x in latency_vs_editDist], [x[1] for x in latency_vs_editDist])

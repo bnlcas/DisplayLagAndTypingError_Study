@@ -1,0 +1,49 @@
+Latency:50#FrameTime:100##Output: 
+Latency:120#FrameTime:0#he lets down a tin pail#Output: he lets down his pial
+Latency:50#FrameTime:0#he lurks under the roof#Output: he lukrs under the foof
+Latency:50#FrameTime:0#it all started way back#Output: it all started way aback
+Latency:75#FrameTime:0#from the far end of town#Output: from the far end of town
+Latency:25#FrameTime:0#where the tall grass grows#Output: where teh tall grass grows
+Latency:75#FrameTime:0#on the end of a rope#Output: on the end of a rope
+Latency:75#FrameTime:0#if you're willing to pay#Output: if you're willing to pay
+Latency:75#FrameTime:0#he lurks under the roof#Output: he lurks under the roof
+Latency:160#FrameTime:0#how the lorax got taken away#Output: how the lorax got taken away
+Latency:25#FrameTime:0#i came to this glorious place#Output: i came to this gloriuous place
+Latency:25#FrameTime:0#the shell of a snail#Output: the shell of a snail
+Latency:25#FrameTime:0#it all started way back#Output: it all started way back
+Latency:0#FrameTime:0#if you're willing to pay#Output: if you're willing to pay
+Latency:75#FrameTime:0#pay him the proper amount#Output: pay him the tproper amount
+Latency:120#FrameTime:0#deep in the grickle-grass#Output: depp in the grickle-grass
+Latency:0#FrameTime:0#before somebody lifted the lorax#Output: befores someboedy lifted the lorax
+Latency:160#FrameTime:0#it all started way back#Output: it all started way back
+Latency:75#FrameTime:0#it all started way back#Output: itall started way back
+Latency:75#FrameTime:0#what was the lorax?#Output: what was the lorax?
+Latency:25#FrameTime:0#with his teeth sounding gray#Output: with his teeth sounding gray
+Latency:120#FrameTime:0#the onceler lives here#Output: the onceler lives here
+Latency:120#FrameTime:0#on special nights in august#Output: on pecial nights in august
+Latency:0#FrameTime:0#he makes his own clothes#Output: he makes his onw clothers
+Latency:50#FrameTime:0#you can still see today#Output: you can still see today
+Latency:75#FrameTime:0#deep in the grickle-grass#Output: deep in the grickle-grass
+Latency:120#FrameTime:0#he hides what you paid him#Output: he hides what you paid him
+Latency:0#FrameTime:0#some people say#Output: some people say
+Latency:160#FrameTime:0#such a long time back#Output: such a lokng time back
+Latency:50#FrameTime:0#the onceler lives here#Output: the onceler lives here
+Latency:0#FrameTime:0#what was the lorax?#Output: what was the lorax
+Latency:0#FrameTime:0#excepting old crows#Output: excepting old crows
+Latency:120#FrameTime:0#now i'll tell you#Output: now i'll tell you
+Latency:120#FrameTime:0#he hides what you paid him#Output: he hides what you paid him
+Latency:75#FrameTime:0#don't knock at his door#Output: don't knock at his door
+Latency:75#FrameTime:0#with his teeth sounding gray#Output: with his teeth sounding gray
+Latency:0#FrameTime:0#the grass was still green#Output: the grass was still green
+Latency:120#FrameTime:0#he counts it all#Output: he counts it all
+Latency:50#FrameTime:0#some people say#Output: some people say
+Latency:50#FrameTime:0#fifteen cents and a nail#Output: fifteen cents and a sanil
+Latency:0#FrameTime:0#before somebody lifted the lorax#Output: before somebody lifted the lorax
+Latency:0#FrameTime:0#where the grickle-grass grows#Output: where teh grickcle-grass grows
+Latency:0#FrameTime:0#he'll tell you perhaps#Output: hell tell you prehaps
+Latency:160#FrameTime:0#is the street of the lorax#Output: is the strees ot the lorax
+Latency:50#FrameTime:0#he hides what you paid him#Output: he hides what you paid him
+Latency:50#FrameTime:0#if you're willing to pay#Output: if you're willing to pay
+Latency:25#FrameTime:0#the songs rang out in space#Output: the songs rang out in space
+Latency:75#FrameTime:0#he lets down a tin pail#Output: he lets down a sin pail
+Latency:120#FrameTime:0#the pond was still wet#Output: the ond wias still wet

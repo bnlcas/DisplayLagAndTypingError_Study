@@ -1,0 +1,49 @@
+Latency:50#FrameTime:100##Output: 
+Latency:0#FrameTime:100#he lurks under the roof#Output: 
+Latency:0#FrameTime:0#the grass was still green#Output: the grass was still green
+Latency:0#FrameTime:64#and you have to toss in#Output: and you have to toss in
+Latency:0#FrameTime:0#if you look deep enough#Output: if you look deep enough
+Latency:0#FrameTime:16#how the lorax got taken away#Output: how the lorax fot lifted
+Latency:0#FrameTime:0#on the end of a rope#Output: on the end of a rope
+Latency:0#FrameTime:32#the lorax was lifted away#Output: the lorax was lifted away
+Latency:0#FrameTime:150#the fresh morning breeze#Output: the fresh morning breeze
+Latency:0#FrameTime:0#from the far end of town#Output: from the far end of twon
+Latency:0#FrameTime:150#excepting old crows#Output: excepting old crows
+Latency:0#FrameTime:32#he lets down a tin pail#Output: he lets down a tin pail
+Latency:0#FrameTime:0#the fresh morning breeze#Output: the fresh morning breeze
+Latency:0#FrameTime:150#you wont see him there#Output: you wont see hime there
+Latency:0#FrameTime:0#the pond was still wet#Output: the pond was still wet
+Latency:0#FrameTime:100#you wont see him there#Output: you wont set him there
+Latency:0#FrameTime:150#on special nights in august#Output: on special nights in august
+Latency:0#FrameTime:150#what was the lorax?#Output: what was the lorax?
+Latency:0#FrameTime:0#and i first saw the trees#Output: and i first saw thie trees
+Latency:0#FrameTime:32#he lurks under the roof#Output: he lurks under the roof
+Latency:0#FrameTime:16#excepting old crows#Output: excepting old crows
+Latency:0#FrameTime:100#where the lorax once stood#Output: where teh lorax once stood
+Latency:0#FrameTime:0#the songs rang out in space#Output: the songs range out in space
+Latency:0#FrameTime:16#where the lorax once stood#Output: where teh lorax once stood
+Latency:0#FrameTime:150#no birds ever sing#Output: no birst ever sing
+Latency:0#FrameTime:16#if you look deep enough#Output: if you look enddp eoough
+Latency:0#FrameTime:64#fifteen cents and a nail#Output: fiften cents and a nail
+Latency:0#FrameTime:64#now i'll tell you#Output: now i'll stell you
+Latency:0#FrameTime:150#and sometimes he speaks#Output: and sometimes he speeks
+Latency:0#FrameTime:16#is the street of the lorax#Output: is the street of the lorax
+Latency:0#FrameTime:150#the lorax was lifted away#Output: the lorax was lifted way
+Latency:0#FrameTime:100#fifteen cents and a nail#Output: fiftene scents and a nail
+Latency:0#FrameTime:64#the songs rang out in space#Output: the songs rang out in space
+Latency:0#FrameTime:16#now i'll tell you#Output: now i'll tell you
+Latency:0#FrameTime:0#and why was it lifted#Output: and why aw sit lifted
+Latency:0#FrameTime:150#what was the lorax?#Output: what was teh lorax"
+Latency:0#FrameTime:64#before somebody lifted the lorax#Output: before tsomebody lifted teh loraw
+Latency:0#FrameTime:100#deep in the grickle-grass#Output: deep in teh grickle-grass
+Latency:0#FrameTime:16#he makes counts it#Output: he makes count ist
+Latency:0#FrameTime:150#you can still see today#Output: you can still see today
+Latency:0#FrameTime:100#if you're willing to pay#Output: if you're willing to pay
+Latency:0#FrameTime:64#the wind smells slow#Output: the wind smells slow
+Latency:0#FrameTime:150#on the end of a rope#Output: on the end of a rope
+Latency:0#FrameTime:0#they have to come down#Output: the have come down
+Latency:0#FrameTime:16#such a long time back#Output: such a long time back
+Latency:0#FrameTime:150#he had bees up his nose#Output: he had bees up his noese
+Latency:0#FrameTime:32#on special nights in august#Output: on special nights in august
+Latency:0#FrameTime:32#if you look deep enough#Output: if you look eddp neough
+Latency:0#FrameTime:64#he makes counts it#Output: he makes counts it

@@ -8,7 +8,7 @@ var frameTime = 100;
 var latency = 50;
 var update = setInterval(drawWLatency, frameTime);
 
-var stimulusTime = 5000;
+var stimulusTime = 3000;
 var nTrials = 48;
 var trialNumber = 0;
 var targetText = "";
@@ -94,7 +94,6 @@ function DisplayStimulusCountdown(stimulusTimeRemaining)
 {
 
   var timeRemainingText = String(stimulusTimeRemaining/1000);
-  console.log(timeRemainingText);
   inputParagraph.innerHTML = "STIMULUS TIME: " + timeRemainingText;
   if(stimulusTimeRemaining >= 1000)
   {
@@ -117,7 +116,7 @@ function EndPresentation()
 function SetLag()
 {
   var latencies = [0, 25, 50, 75, 120, 160];
-  var frameTimes = [0, 16, 32, 64, 100, 150];
+  var frameTimes = [0];//[0, 16, 32, 64, 100, 150];
   frameTime = frameTimes[Math.floor(Math.random() * frameTimes.length)];
   latency = latencies[Math.floor(Math.random() * latencies.length)];
 
@@ -149,17 +148,17 @@ function downloadTextFile(text, name)
 
 function GenerateTargetString()
 {
-var targets = ["at the far end of town where the grickle-grass grows", "the wind smells slow-and-sour when it blows", "no birds ever sing excepting old crows",
-"is the Street of the Lifted Lorax", "And deep in the Grickle-grass some people say", "if you look deep enough you can still see today", "where the Lorax once stood just as long as it could",
-"before somebody lifted the Lorax away", "What was the Lorax?", "And why was it there?", "And why was it lifted and taken somewhere", "from the far end of town where the Grickle-grass grows",
-"The old Onceler still lives here", "You wont see the Once-ler. Don't knock at his door", "He stays in his Lerkim on top of his store", "He lurks in his Lerkim, cold under the roof",
-"where he makes his own clothes out of miff-muffered moof", "And on special dank midnights in August", "he peeks out of the shutters and sometimes he speaks", "and tells how the Lorax was lifted away",
-"He'll tell you, perhaps if you're willing to pay", "On the end of a rope he lets down a tin pail", "and you have to toss in fifteen cents and a nail", "and the shell of a great-greatgrandfather snail",
-"Then he pulls up the pail, makes a most careful count", "to see if you've paid him the proper amount", "Then he hides what you paid him away in his Snuv", "since they have to come down through a snergelly hose",
-"and he sounds as if he had smallish bees up his nose", "Now I'll tell you, he says, with his teeth sounding gray", "how the Lorax got lifted and taken away", "It all started way back, such a long, long time back",
-"Way back in the days when the grass was still green", "the pond was still wet", "and the clouds were still clean", "the song of the Swomee-Swans rang out in space", "one morning, I came to this glorious place",
-"And I first saw the trees, the Truffula Trees", "The bright colored tufts of the Truffula Trees", "Mile after mile in the fresh morning breeze"];
+var targets = ["at the far end of town", "where the grickle-grass grows", "the wind smells slow", "sour when it blows", "no birds ever sing", "excepting old crows",
+"is the Street of the Lorax", "deep in the Grickle-grass", "some people say", "if you look deep enough", "you can still see today", "where the Lorax once stood", "just as long as it could",
+"before somebody lifted the Lorax", "What was the Lorax?", "And why was it there?", "And why was it lifted", "from the far end of town", "where the tall grass grows",
+"The Onceler lives here", "You wont see him there",  "Don't knock at his door", "He stays on top of his store", "He lurks under the roof",
+"he makes his own clothes",  "on special nights in August", "he peeks out of the shutters",  "and sometimes he speaks", "the Lorax was lifted away",
+"He'll tell you perhaps", "if you're willing to pay", "On the end of a rope", "he lets down a tin pail", "and you have to toss in", "fifteen cents and a nail", "the shell of a snail",
+"he pulls up the pail" ,"he counts it all", "pay him the proper amount", "he hides what you paid him", "they have to come down",
+"he had bees up his nose", "Now I'll tell you", "with his teeth sounding gray", "how the Lorax got taken away", "It all started way back" ,"such a long time back",
+"the grass was still green", "the pond was still wet", "the clouds were still clean", "the songs rang out in space", "I came to this glorious place",
+"And I first saw the trees", "The bright colored tufts", "the fresh morning breeze"];
 var randInd = Math.floor(Math.random() * targets.length);
 console.log(targets[randInd]);
-return targets[randInd];
+return targets[randInd].toLowerCase();
 }

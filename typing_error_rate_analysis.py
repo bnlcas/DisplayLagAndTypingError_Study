@@ -5,7 +5,7 @@ Created on Tue Aug 28 12:01:00 2018
 @author: Ben_Lucas
 """
 import numpy as np
-from matplotlib.pyplot import plot as plt
+from matplotlib.pyplot as plt
 from scipy.stats import pearsonr
 
 def LevenshteinDistance(seq1, seq2):  
@@ -68,6 +68,18 @@ def BinLagLatency(trial_data):
         average_edits.append(np.mean(edit_distances))
     return zip(unique_latency, average_edits)
 
+def BinLagLatencyWError(trial_data):
+    latencies = [tr.latency for tr in trial_data]
+    unique_latency = list(set(latencies))
+    unique_latency.sort()
+    average_edits = []
+    std_edits = []
+    for latency in unique_latency:
+        edit_distances = [tr.normalized_edit_distance for tr in trial_data if tr.latency == latency]
+        average_edits.append(np.mean(edit_distances))
+        std_edits.append(np.std(edit_distances))
+    return zip(unique_latency, average_edits, std_edits)
+
 def CheckLagLatencyCorrelation(trial_data):
     lag_latency = [tr.latency for tr in trial_data]
     norm_error = [tr.normalized_edit_distance for tr in trial_data]
@@ -97,13 +109,22 @@ latency_vs_editDist = BinFrameRateLatency(trials)
 corr_frameRate = CheckFrameRateLatencyCorrelation(trials)
 #print(corr_frameRate[1]) # p-value - printing for python3 only...
 #Plot Latency:
-plt([x[0] for x in latency_vs_editDist], [x[1] for x in latency_vs_editDist])
+plt.plot([x[0] for x in latency_vs_editDist], [x[1] for x in latency_vs_editDist])
 
 # Analyze Frame Rate only data:
 filename = "trialData_displayLag.txt"
 trials = LoadTestData(filename)
-latency_vs_editDist = BinLagLatency(trials)
+latency_vs_editDist = BinLagLatencyWError(trials)
 corr_lag = CheckLagLatencyCorrelation(trials)
 #print(corr_lag[1])
 #Plot Latency:
-plt([x[0] for x in latency_vs_editDist], [x[1] for x in latency_vs_editDist])
+plt.plot([x[0] for x in latency_vs_editDist], [x[1] for x in latency_vs_editDist])
+plt.plot([tr.latency for tr in trials], [tr.normalized_edit_distance for tr in trials])
+
+
+
+# First illustrate basic pyplot interface, using defaults where possible.
+plt.figure()
+plt.errorbar([x[0] for x in latency_vs_editDist], [x[1] for x in latency_vs_editDist], xerr=0.0, yerr=[x[2] for x in latency_vs_editDist])
+plt.title("Simplest errorbars, 0.2 in x, 0.4 in y")
+plt.

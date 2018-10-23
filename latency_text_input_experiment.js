@@ -30,14 +30,7 @@ $(document).ready(function () {
         }
         else
         {
-          if(keynum == 8)
-          {
-            DeleteCharacter();
-          }
-          else
-          {
-            added_text += String.fromCharCode(keynum).toLowerCase();
-          }
+          added_text += String.fromCharCode(keynum).toLowerCase();
         }
 
       }
@@ -64,6 +57,7 @@ function drawWLatency()
 function draw(inputText)
 {
   inputParagraph.innerHTML += inputText;
+  inputParagraph.innerHTML = DeleteBackspace(inputParagraph.innerHTML);
 }
 
 function editFrameRate()
@@ -147,24 +141,27 @@ function LogResult()
     }
 }
 
-function DeleteCharacter()
+function DeleteBackspace(s)
 {
-  if(added_text.length > 0)
+  var base_length = "Output: ".length;
+  var backspace_index = s.indexOf("\b");
+  while(backspace_index != -1)
   {
-    added_text = added_text.slice(0,-1);
-  }
-  else
-  {
-
-    var current_output = inputParagraph.innerHTML;
-    console.log(current_output);
-    if(current_output.length > "Output: ".length)
+    if(backspace_index <= base_length)
     {
-      console.log(current_output.slice(0,-1));
-      inputParagraph.innerHTML = current_output.slice(0,-1);
+      s = s.slice(0,backspace_index) + s.slice(backspace_index + 1);
     }
+    else {
+      s = s.slice(0,backspace_index - 1) + s.slice(backspace_index + 1);
+    }
+    backspace_index = s.indexOf("\b");
   }
+  return s;
 }
+
+
+
+
 
 function downloadTextFile(text, name)
 {

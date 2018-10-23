@@ -29,34 +29,11 @@
 				}
 			else {
 				//Delete on Backspace
-				if(keynum == 8)
-				{
-					if(added_text.length > 0)
-					{
-						added_text = added_text.slice(0,-1);
-					}
-					else
-					{
-						var current_text = paragraph.innerHTML;
-						if(current_text.length > initial_output_message.length)
-						{
-							paragraph.innerHTML = current_text.slice(0,-1);
-						}
-					}
-				}
-				else
-				{
-						added_text += String.fromCharCode(keynum).toLowerCase();
-				}
+				added_text += String.fromCharCode(keynum).toLowerCase();
 				setTimeout(() => entryField.value = "",1);
-
 			}
 	    });
 	});
-
-
-
-
 
   function start()
   {
@@ -72,10 +49,11 @@
 		added_text = "";
   }
 
-
   function draw(inputText)
   {
-		paragraph.innerHTML += inputText;
+		var newOutputText = paragraph.innerHTML + inputText;
+		newOutputText = DeleteBackspace(newOutputText);
+		paragraph.innerHTML = newOutputText;
   }
 
   function editFrameRate()
@@ -90,3 +68,21 @@
 
 	latency = parseInt(document.getElementById("Latency").value, 10);
   }
+
+	function DeleteBackspace(s)
+	{
+		var base_length = initial_output_message.length;
+		var backspace_index = s.indexOf("\b");
+		while(backspace_index != -1)
+		{
+			if(backspace_index <= base_length)
+			{
+				s = s.slice(0,backspace_index) + s.slice(backspace_index + 1);
+			}
+			else {
+				s = s.slice(0,backspace_index - 1) + s.slice(backspace_index + 1);
+			}
+			backspace_index = s.indexOf("\b");
+		}
+		return s;
+	}

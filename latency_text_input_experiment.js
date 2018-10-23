@@ -15,25 +15,36 @@ var targetText = "";
 var inputText = "";
 var displayingTarget = false;
 
-function myKeyPress(e)
-{
-  if(!displayingTarget)
-  {
-    var keynum;
 
-    if(window.event) { // IE
-      keynum = e.keyCode;
-    } else if(e.which){ // Netscape/Firefox/Opera
-      keynum = e.which;
-    }
 
-    if(keynum == 13){
-      newTrial()
-    }
-    added_text += String.fromCharCode(keynum);
-  }
-  setTimeout(() => entryField.value = "",1);
-}
+$(document).ready(function () {
+    $("#textEntry").keydown(function(e)
+    {
+      if(!displayingTarget)
+      {
+        var keynum = e.keyCode;
+
+        if(keynum == 13)
+        {
+          newTrial()
+        }
+        else
+        {
+          if(keynum == 8)
+          {
+            DeleteCharacter();
+          }
+          else
+          {
+            added_text += String.fromCharCode(keynum).toLowerCase();
+          }
+        }
+
+      }
+      setTimeout(() => entryField.value = "",1);
+    });
+});
+
 
 function start()
 {
@@ -136,6 +147,24 @@ function LogResult()
     }
 }
 
+function DeleteCharacter()
+{
+  if(added_text.length > 0)
+  {
+    added_text = added_text.slice(0,-1);
+  }
+  else
+  {
+
+    var current_output = inputParagraph.innerHTML;
+    console.log(current_output);
+    if(current_output.length > "Output: ".length)
+    {
+      console.log(current_output.slice(0,-1));
+      inputParagraph.innerHTML = current_output.slice(0,-1);
+    }
+  }
+}
 
 function downloadTextFile(text, name)
 {

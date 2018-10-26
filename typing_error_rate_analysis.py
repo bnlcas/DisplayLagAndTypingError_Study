@@ -1,11 +1,11 @@
-# -*- coding: utf-8 -*-
+Th# -*- coding: utf-8 -*-
 """
 Created on Tue Aug 28 12:01:00 2018
 
 @author: Ben_Lucas
 """
 import numpy as np
-from matplotlib.pyplot as plt
+import matplotlib.pyplot as plt
 from scipy.stats import pearsonr
 
 def LevenshteinDistance(seq1, seq2):  
@@ -34,13 +34,16 @@ def LevenshteinDistance(seq1, seq2):
     return (matrix[size_x - 1, size_y - 1])
 
 class TrialData:
-    def __init__(self, latency, frame_time, target_text, input_text):
+    def __init__(self, latency, frame_time, target_text, input_text, duration):
         self.latency = latency
         self.frame_time = frame_time
+        self.mean_lag = latency + float(frame_time)/2.0 # after of latency and lag
         self.edit_distance = LevenshteinDistance(target_text, input_text)
         self.normalized_edit_distance = float(self.edit_distance)/float(len(target_text))
         self.target_text = target_text
         self.input_text = input_text
+        self.duration = float(duration - 3000)/1000.0 # remove presentation time, convert to seconds
+        self.char_per_second = float(len(input_text))/duration
         
 def LoadTestData(filename):
     f = open(filename, 'r')
@@ -54,9 +57,10 @@ def ParseEntry(entry):
     fields = entry.split("#")
     latency = int(fields[0].split(":")[1])
     frame_time = int(fields[1].split(":")[1])
-    target_text = fields[2]
-    input_text = fields[3].split(": ")[1].replace("\n","")
-    return TrialData(latency, frame_time, target_text, input_text)
+    duration = float(fields[2].split(":")[1])
+    target_text = fields[3]
+    input_text = fields[4].split(": ")[1].replace("\n","")
+    return TrialData(latency, frame_time, target_text, input_text, duration)
 
 def BinLagLatency(trial_data):
     latencies = [tr.latency for tr in trial_data]
@@ -102,6 +106,19 @@ def CheckFrameRateLatencyCorrelation(trial_data):
     corr = pearsonr(frame_rate_latency, norm_error)
     return corr
 
+def BinTypeRate_MeanLagWError(trial_data):
+    mean_lags = [tr.mean_lag for tr in trial_data]
+    unique_lag = list(set(mean_lags))
+    unique_lag.sort()
+    avg_duration = []
+    std_duration = []
+    for lag in unique_lag:
+        durations = [tr.char_per_second for tr in trial_data if tr.mean_lag == lag]
+        avg_duration.append(np.mean(durations))
+        std_duration.append(np.std(durations))
+    return [unique_lag, avg_duration, std_duration]
+
+
 # Analyze Frame Rate only data:
 filename = "trialData_frameRate.txt"
 trials = LoadTestData(filename)
@@ -112,7 +129,7 @@ corr_frameRate = CheckFrameRateLatencyCorrelation(trials)
 plt.plot([x[0] for x in latency_vs_editDist], [x[1] for x in latency_vs_editDist])
 
 # Analyze Frame Rate only data:
-filename = "trialData_displayLag.txt"
+filename = "trialData-2.txt"
 trials = LoadTestData(filename)
 latency_vs_editDist = BinLagLatencyWError(trials)
 corr_lag = CheckLagLatencyCorrelation(trials)
@@ -123,8 +140,19 @@ plt.plot([tr.latency for tr in trials], [tr.normalized_edit_distance for tr in t
 
 
 
-# First illustrate basic pyplot interface, using defaults where possible.
+# plot raw data with error bar to visualize effects
 plt.figure()
 plt.errorbar([x[0] for x in latency_vs_editDist], [x[1] for x in latency_vs_editDist], xerr=0.0, yerr=[x[2] for x in latency_vs_editDist])
-plt.title("Simplest errorbars, 0.2 in x, 0.4 in y")
-plt.
+plt.title("Normalized Errors vs Latency")
+plt.xlabel("Latency (ms)")
+plt.ylabel("Normalized Levenshtein Distance")
+
+# Plot speed vs latency
+
+[unique_lag, avg_duration, std_duration] = BinTypeRate_MeanLagWError(trials)
+
+plt.figure()
+plt.errorbar(unique_lag, avg_duration, std_duration)
+plt.title("Typing Speed vs Latency")
+plt.xlabel("Latency (ms)")
+plt.ylabel("Typing Speed (Char/sec)")

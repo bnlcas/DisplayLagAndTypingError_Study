@@ -15,6 +15,8 @@ var targetText = "";
 var inputText = "";
 var displayingTarget = false;
 
+var timer = new Date();
+var trialStartTime = 0;
 
 
 $(document).ready(function () {
@@ -26,7 +28,7 @@ $(document).ready(function () {
 
         if(keynum == 13)
         {
-          newTrial()
+          newTrial();
         }
         else
         {
@@ -76,8 +78,13 @@ function editLatency()
 
 function newTrial()
 {
-  LogResult();
+  if(trialNumber > 0)
+  {
+    LogResult();
+  }
   trialNumber += 1;
+  trialStartTime = timer.getTime();
+
   if(trialNumber > nTrials)
   {
     downloadTextFile(results, "trialData.txt")
@@ -133,7 +140,9 @@ function SetLag()
 function LogResult()
 {
   try {
-    results += "Latency:" + String(latency) + "#FrameTime:" + String(frameTime) + "#" + String(targetText) + "#" + String(inputParagraph.innerHTML) + "\n";
+    timer = new Date();
+    var trial_duration = timer.getTime() - trialStartTime;
+    results += "Latency:" + String(latency) + "#FrameTime:" + String(frameTime) + "#Duration:" + String(trial_duration) + "#" + String(targetText) + "#" + String(inputParagraph.innerHTML) + "\n";
     }
     catch
     {
